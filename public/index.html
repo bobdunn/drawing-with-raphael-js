@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.js"
+        integrity="sha256-lUVl8EMDN2PU0T2mPMN9jzyxkyOwFic2Y1HJfT5lq8I=" crossorigin="anonymous"></script>
+    <script src="./js/draw.js"></script>
+    <title>Let's Raphael!!</title>
+</head>
+
+<body onclick="draw()" style="background-color: black;">
+    <script>
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        var canvasSize = Math.min(w, h) - 20;
+        var paper = Raphael((w - canvasSize) / 2, (h - canvasSize) / 2, canvasSize, canvasSize);
+        const draw = () => {
+            paper.clear();
+            // drawBezierThing(paper)
+            drawMoreRotationalSymmetry(paper, 4, 6, 6, 3)
+            // drawWanderingLine(paper);
+        }
+        draw()
+    </script>
+</body>
+
+</html>

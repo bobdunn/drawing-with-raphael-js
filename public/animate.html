@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.js"
+        integrity="sha256-lUVl8EMDN2PU0T2mPMN9jzyxkyOwFic2Y1HJfT5lq8I=" crossorigin="anonymous"></script>
+    <title>Let's Raphael!!</title>
+</head>
+
+<body>
+    <!-- the html element where to put the paper -->
+    <div id="paper1"></div>
+
+    <!-- a script that create's a paper and a rectangle -->
+    <script type="text/javascript">
+        /* create a paper - commented for Run */
+        var paper = Raphael("paper1", 400, 400); 
+
+        /* create an ellipse called ellipse1 */
+        var ellipse1 = paper.ellipse(200, 200, 200, 200);
+
+        /* fill the rectangle with orange */
+        ellipse1.attr({ "fill": "0-#fff-#f00:20-#000", "stroke": "yellow" });
+
+
+
+        ellipse1.attr({ cursor: "pointer" });
+
+        /* add a click handler */
+        ellipse1.click(function (evt) {
+
+            /* animate the ellipse - in two seconds its fill color and its stroke 
+             * width will grow "bouncing". */
+            ellipse1.animate({ fill: "red", rx:1}, 8000, "bounce");
+
+            /* also animate the text - syncronized with the eliipse animation the 
+             * text will grow "bouncing too" */
+            //  ellipse1.animateWith(ellipse1, null, { "font-size": 60 }, 2000, "bounce");
+
+        });
+        
+    </script>
+</body>
+
+</html>
