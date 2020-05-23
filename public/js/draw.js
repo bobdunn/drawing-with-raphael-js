@@ -85,7 +85,7 @@ const drawMoreRotationalSymmetry = (
             }
         }
     }
-    var animationTime = 8000
+    var animationTime = 5000
     const easing = "linear";
 
 
