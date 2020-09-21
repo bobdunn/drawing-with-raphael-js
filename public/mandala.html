@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -20,28 +21,10 @@
             var paper = Raphael((w - canvasSize) / 2, (h - canvasSize) / 2, canvasSize, canvasSize);
             const draw = () => {
                 paper.clear();
-                // mandala.drawBasicDotMandala(paper, {
-                //     originalPointCount: 80,
-                //     largestRadius: .15,
-                //     minimumScale: .2,
-                //     maximumScale: 1,
-                //     scaleDelta: .2,
-                //     shouldScaleDotCount: true,
-                //     fillOpacity: .75,
-                //     scaleToFit: .85,
-                //     hue: null
-                // })
-                mandala.drawSixDotMandalas(paper, {
-                    originalPointCount: 12,
-                    largestRadius: .15,
-                    minimumScale: .2,
-                    maximumScale: 1,
-                    scaleDelta: .25,
-                    shouldScaleDotCount: true,
-                    fillOpacity: .5,
-                    scaleToFit: .85,
-                    hue: (360 * Math.random()).toFixed(4)
-                })
+                // drawBezierThing(paper)
+                // drawjs.drawMoreRotationalSymmetry(paper, 2, 3, 3, 3)
+                // drawWanderingLine(paper);
+                mandala.drawBasicDotMandala(paper)
             }
             draw()
         }
