@@ -44,38 +44,36 @@ don't know it, so I'll just do it the hard way.
 
 Here's what we know:
 
-<img src="https://render.githubusercontent.com/render/math?math=1=0a%2b0b%2bc"> and it follows that <img src="https://render.githubusercontent.com/render/math?math=c=1">
+<img src="https://render.githubusercontent.com/render/math?math=1=0^2a%2b0b%2bc"> and it follows that <img src="https://render.githubusercontent.com/render/math?math=c=1">
 
 Next we have
 
-<img src="https://render.githubusercontent.com/render/math?math=">
-$1 = a\left( 2\pi \right)^{2} + b\left( 2\pi \right) + c$,
+<img src="https://render.githubusercontent.com/render/math?math=1=\pi^2a%2b\pi b%2bc">
 
-Substituting $c = 1$, we have
-$1 = a\left( 2\pi \right)^{2} + b\left( 2\pi \right) + 1$, which through
-some ~~magic~~ algebra we can get to tell us that $b = - 2\pi a$.
+Substituting <img src="https://render.githubusercontent.com/render/math?math=c=1">, we have
+<img src="https://render.githubusercontent.com/render/math?math=1=\pi^2a%2b\pi b%2b1">, which through
+some ~~magic~~ algebra we can get to tell us that <img src="https://render.githubusercontent.com/render/math?math=b=-2\pi a">.
 Finally we have our middle point which tells us that
-$\frac{1}{2} = a\pi^{2} + b\pi + c$. Plugging in what we know about *c*
-and *b*, we get $\frac{1}{2} = a\pi^{2} - 2\pi^{2}a + 1$, which
-simplifies to $a = \frac{1}{2\pi^{2}}$, so our complete equation is:
-
-$$r = \frac{θ^{2}}{2\pi^{2}} - \frac{θ}{\pi} + 1$$
+<img src="https://render.githubusercontent.com/render/math?math=\frac{1}{2}=a\pi^2%2bb\pi%2bc">. Plugging in what we know about *c*
+and *b*, we get <img src="https://render.githubusercontent.com/render/math?math=1/2=a\pi^2-2\pi^2a%2b1"> , which
+simplifies to <img src="https://render.githubusercontent.com/render/math?math=a=\frac{\pi^2}{2}">, so our complete equation is:
+<img src="https://render.githubusercontent.com/render/math?math=r=\frac{\theta^{2}}{2\pi^{2}} - \frac{\theta}{\pi} %2b 1">
 
 With a little help from Wolfram Alpha, I get this plot:
 
 ![](./media/image3.png)... which is not what I want. I'm looking
 for a shape that meets at a sharper curve at the top. For simplicity's
-sake, I'm considering the top moving forward to be $\pi$ and $- \pi$,
+sake, I'm considering the top moving forward to be π and -π,
 and the bottom to be 0. In these terms, let's try an equation of the
 form
 
-$$r = m\θ^{4} + \frac{1}{2}$$
+<img src="https://render.githubusercontent.com/render/math?math=r=m\theta^4 %2b \frac{1}{2}">
 
-When $\θ = \pi$ or $\θ = - \pi$, $r = 1$. So
-$1 = m\pi^{4} + \frac{1}{2}$, or $m = \frac{1}{2\pi^{4}}$, hence our
+When θ = π or θ = -π, r = 1. So
+<img src="https://render.githubusercontent.com/render/math?math=1=m\pi^4 %2b \frac{1}{2}"> or <img src="https://render.githubusercontent.com/render/math?math=m=\frac{1}{2\pi^4}">, hence our
 whole polar equation is
 
-$$r = \frac{\θ^{4}}{2\pi^{4}} + \frac{1}{2}$$
+<img src="https://render.githubusercontent.com/render/math?math=r=\frac{\theta^4}{2\pi^4} %2b \frac{1}{2}"/>
 
 The plot for this one looks much better:
 ![](./media/image4.png)
@@ -98,14 +96,14 @@ This is drawn on a canvas whose coordinates are abstracted to a square
 from (-1, -1) to (1, 1). The size of each of the circles is 0.05. To
 start, I'll guess that the biggest circle needs to be 0.15, and the
 smallest needs to be .01. We can vary this with θ with 
-$r = \θ^{2}\frac{.14}{\pi^{2}} + 0.01$. The result (from
+<img src="https://render.githubusercontent.com/render/math?math=r=\theta^2\frac{.14}{\pi^2}%2b0.01"/>. The result (from
 [this](https://github.com/bobdunn/drawing-with-raphael-js/tree/d764e9d9a0b8b67fd189a2cd665ed785453426c5)
 code) is: t![](./media/image6.png)
 
 The next step is more complex. Currently I'm using a simple for loop
-from $- \pi$ to $\pi$, at a rate of $2\pi/28$. Now the size of the steps
+from -π to π, at a rate of 2\π/28. Now the size of the steps
 needs to change, but it still needs to have 28 steps that add up to
-$2\pi$. For simplicity's sake I think I'll make this one var linearly.
+2π. For simplicity's sake I think I'll make this one var linearly.
 Number the steps from -14 to 14. It's worth noting that both ends
 correspond to the top point. The first could be considered the step
 *from* the top, and the last could be considered the step *to* the top.
@@ -169,13 +167,13 @@ symmetry of starting at -14 though, so...
   -1     0      1
 
 The relative size is easy enough to calculate:
-$relative\ size = abs\left( Step + \frac{1}{2} \right) + \frac{1}{2}$.
+<img src="https://render.githubusercontent.com/render/math?math=relative%20size=|Step %2b \frac{1}{2}| %2b \frac{1}{2}">
 We need to know what to scale by so that the sum of all these is $2\pi$.
 Remember that the formula for triangle numbers is
-$\frac{n\left( n + 1 \right)}{2}$. We have two, however, so we'll just
-double that, and use $n\left( n + 1 \right) = 14*15 = 210$. The smallest
-step (relative size 1) will be 1 210^th^ of the circle.
+<img src="https://render.githubusercontent.com/render/math?math=\frac{n(n%2b1)}{2}">. We have two, however, so we'll just
+double that, and use <img src="https://render.githubusercontent.com/render/math?math=n(n%2b1)=14*15=210">. The smallest
+step (relative size 1) will be 1/210 of the circle.
 [This](https://github.com/bobdunn/drawing-with-raphael-js/tree/1a205b0e60d033071b4abc4391f116e92c1cc27c)
 gives us:
 
-![](./media/image7.png=2.0627176290463693inx)
+![](./media/image7.png)
