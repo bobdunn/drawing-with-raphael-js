@@ -105,6 +105,18 @@ export const polar = {
         var circle = paper.circle(center.x, center.y, mapDistance(options.radius, paper))
         if (options.attributes) circle.attr(options.attributes)
         return circle;
+    },
+    toCartesian: p => {
+        return {
+            x: p.r * Math.cos(p.theta),
+            y: p.r * Math.sin(p.theta)
+        }
+    },
+    fromCartesian: p => {
+        return {
+            r: Math.sqrt(p.x * p.x + p.y * p.y),
+            theta: Math.atan(p.y / p.x)
+        };
     }
 }
 
